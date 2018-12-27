@@ -25,6 +25,8 @@ static const char STX_CHARACTER = 2;
 static const char ETX_CHARACTER = 3;
 /** End of Transmission */
 static const char EOT_CHARACTER = 4;
+/** Value Separator */
+static const char VALUE_SEPARATOR = '|';
 /** Supported commands  */
 static const uint8_t MESSAGE = 0;
 /** Maintenance commands    */
@@ -32,9 +34,7 @@ static const uint8_t RESET_DEVICE = 1;
 static const uint8_t CLEAR_EEPROM = 2;
 static const uint8_t DEVICE_INFO = 3;
 /** Wireless setup / info   */
-static const uint8_t WIFI = 4;
-/** MQTT setup / info   */
-static const uint8_t MQTT = 5;
+static const uint8_t REMOTE_SETUP = 4;
 
 /**
  * This class if used for handle all serial command
@@ -48,6 +48,10 @@ class CommandUtil {
         boolean hasValue();
         String getValue();
         boolean readPort();
+        void initCommand(uint8_t command);
+        void sendValue(char key[], char value[]);
+        void sendValue(char value[]);
+        void endCommand();
     private:
         String _data;
         uint8_t _command;

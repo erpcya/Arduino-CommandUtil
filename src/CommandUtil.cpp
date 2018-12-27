@@ -97,6 +97,41 @@ void CommandUtil::setDelay(int delay) {
 }
 
 /**
+ * Init Command
+ */
+void CommandUtil::initCommand(uint8_t command) {
+	_serialHandler.write(SOH_CHARACTER);
+	_serialHandler.write(command);
+}
+
+/**
+ * Send value with key
+ */
+void CommandUtil::sendValue(char key[], char value[]) {
+	_serialHandler.write(STX_CHARACTER);
+	_serialHandler.write(key);
+	_serialHandler.write(VALUE_SEPARATOR);
+	_serialHandler.write(value);
+	_serialHandler.write(ETX_CHARACTER);
+}
+
+/**
+ * Send Value without command
+ */
+void CommandUtil::sendValue(char value[]) {
+	_serialHandler.write(STX_CHARACTER);
+	_serialHandler.write(value);
+	_serialHandler.write(ETX_CHARACTER);
+}
+
+/**
+ * End command Stream
+ */
+void CommandUtil::endCommand() {
+	_serialHandler.write(EOT_CHARACTER);
+}
+
+/**
  * Read port for get info
  */
 boolean CommandUtil::readPort() {
