@@ -28,13 +28,13 @@ static const char EOT_CHARACTER = 4;
 /** Value Separator */
 static const char VALUE_SEPARATOR = '|';
 /** Supported commands  */
-static const uint8_t MESSAGE = 0;
+static const char MESSAGE = '0';
 /** Maintenance commands    */
-static const uint8_t RESET_DEVICE = 1;
-static const uint8_t CLEAR_EEPROM = 2;
-static const uint8_t DEVICE_INFO = 3;
+static const char RESET_DEVICE = '1';
+static const char CLEAR_EEPROM = '2';
+static const char DEVICE_INFO = '3';
 /** Wireless setup / info   */
-static const uint8_t REMOTE_SETUP = 4;
+static const char REMOTE_SETUP = '4';
 
 /**
  * This class if used for handle all serial command
