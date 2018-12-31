@@ -68,7 +68,7 @@ String CommandUtil::getValue(String data) {
     return "";
   }
   //  else
-  return data.substring(data.indexOf(STX_CHARACTER) + 1);
+  return data.substring(data.indexOf(STX_CHARACTER));
 }
 
 /**
@@ -118,9 +118,9 @@ void CommandUtil::sendValue(char key[], char value[]) {
 /**
  * Send Value without command
  */
-void CommandUtil::sendValue(char value[]) {
+void CommandUtil::sendValue(char key[]) {
 	_serialHandler.write(STX_CHARACTER);
-	_serialHandler.write(value);
+	_serialHandler.write(key);
 	_serialHandler.write(ETX_CHARACTER);
 }
 

@@ -50,7 +50,7 @@ class CommandUtil {
         boolean readPort();
         void initCommand(uint8_t command);
         void sendValue(char key[], char value[]);
-        void sendValue(char value[]);
+        void sendValue(char key[]);
         void endCommand();
     private:
         String _data;
